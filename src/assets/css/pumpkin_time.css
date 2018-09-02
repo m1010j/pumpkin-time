@@ -1,0 +1,265 @@
+/* RESET */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.5;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* MAIN STYLING */
+
+.main-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-body,
+h1,
+li,
+form,
+input,
+label {
+  font-family: 'Dosis', sans-serif;
+}
+
+main {
+  box-shadow: 0 1.2rem 3rem 0 rgba(0, 0, 0, 0.19),
+    0 0.8rem 2rem 0 rgba(0, 0, 0, 0.24);
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  background-color: #d0d4c0;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+li {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  line-height: 1;
+}
+
+form {
+  display: flex;
+}
+
+input {
+  font-size: 1rem;
+  border-radius: 0.1rem;
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.16),
+    0 0.1rem 0.2rem rgba(0, 0, 0, 0.32);
+  border: none;
+  padding: 0 0 0 0.25rem;
+  background-color: #eee;
+}
+
+input:hover {
+  background-color: #ccc;
+}
+
+.red {
+  background-color: #f97c7c;
+  border-radius: 0.1rem;
+}
+
+#start-time-container {
+  line-height: 1;
+  margin: 0 0 1rem 0;
+}
+
+#result {
+  height: 4.8rem;
+}
+
+p {
+  margin: 0;
+}
+
+/* Radio styling adapted from here: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+
+.container {
+  display: block;
+  position: relative;
+  padding: 0 0.5rem 0 1.5rem;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  height: 1rem;
+  width: 1rem;
+  background-color: #eee;
+  border-radius: 50%;
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.16),
+    0 0.1rem 0.2rem rgba(0, 0, 0, 0.32);
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #f4b042;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 0.3125rem;
+  left: 0.3125rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: white;
+}
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('../fonts/Dosis-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}

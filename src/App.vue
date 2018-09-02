@@ -18,6 +18,6 @@ export default {
 <style>
 html {
   font-size: 3em;
-  background-color: #8cbaff;
+  background-color: #ffeed7;
 }
 </style>
