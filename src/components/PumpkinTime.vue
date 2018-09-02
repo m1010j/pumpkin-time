@@ -79,7 +79,7 @@ li,
 form,
 input,
 label {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 main {
@@ -192,8 +192,8 @@ input:hover {
 }
 
 @font-face {
-  font-family: 'Nanum Gothic';
-  src: url('../assets/NanumGothic-Regular.ttf');
+  font-family: 'Dosis';
+  src: url('../assets/Dosis-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
