@@ -48,12 +48,20 @@
             <span class="checkmark"></span>
           </label>
         </form>
-        <div id="result"></div>
+        <div id="result">
+          <ul>
+            <li v-for="result in results">
+              {{ result }}
+            </li>
+          </ul>
+        </div>
       </main>
   </div>
 </template>
 
 <script>
+const results = ['test'];
+
 export default {
   name: 'PumpkinTime',
   props: {
@@ -62,7 +70,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import '../assets/css/pumpkin_time.css';
 </style>
