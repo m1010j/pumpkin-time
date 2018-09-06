@@ -2,7 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
   var app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello Vue!',
+      startTime: '08:00',
+      jurisdiction: null,
+      age: null,
+      inSession: null,
+      results: [],
     },
   });
+  window.app = app;
 });

@@ -18,53 +18,56 @@
     <main>
       <div id="start-time-container">
         <label for="start-time">Start time:
-          <input type="time" id="start-time" />
+          <input type="time" id="start-time" v-model="startTime" />
         </label>
       </div>
-      <form class='radio' id="jurisdiction-form">
+      <form class="radio" id="jurisdiction-form">
         <p>Jurisdiction:&nbsp;</p>
         <label class="container" for="ny">
-          <input name="jurisdiction" type="radio" id="ny"> NY
+          <input name="jurisdiction" type="radio" id="ny" value="ny" v-model="jurisdiction"> NY
           <span class="checkmark"></span>
         </label>
         <label class="container" for="ca">
-          <input name="jurisdiction" type="radio" id="ca"> CA
+          <input name="jurisdiction" type="radio" id="ca" value="ca" v-model="jurisdiction"> CA
           <span class="checkmark"></span>
         </label>
         <label class="container" for="sag">
-          <input name="jurisdiction" type="radio" id="sag"> SAG
+          <input name="jurisdiction" type="radio" id="sag" value="sag" v-model="jurisdiction"> SAG
           <span class="checkmark"></span>
         </label>
       </form>
-      <form class='radio' id="age-form">
+      <form class="radio" id="age-form">
         <p>Age:&nbsp;</p>
         <label class="container" for="sixToEight">
-          <input name="age" type="radio" id="sixToEight"> 6-8 years
+          <input name="age" type="radio" id="sixToEight" value="sixToEight" v-model="age"> 6-8 years
           <span class="checkmark"></span>
         </label>
         <label class="container" for="nineToFifteen">
-          <input name="age" type="radio" id="nineToFifteen"> 9-15 years
+          <input name="age" type="radio" id="nineToFifteen" value="nineToFifteen" v-model="age"> 9-15 years
           <span class="checkmark"></span>
         </label>
         <label class="container" for="sixteenToSeventeen">
-          <input name="age" type="radio" id="sixteenToSeventeen"> 16-17 years
+          <input name="age" type="radio" id="sixteenToSeventeen" value="sixteenToSeventeen" v-model="age"> 16-17 years
           <span class="checkmark"></span>
         </label>
       </form>
-      <form class='radio' id="school-form">
+      <form class="radio" id="school-form">
         <p>School in session?&nbsp;</p>
         <label class="container" for="inSession">
-          <input name="school" type="radio" id="inSession"> Yes
+          <input name="school" type="radio" id="inSession" value="true" v-model="inSession"> Yes
           <span class="checkmark"></span>
         </label>
         <label class="container" for="notInSession">
-          <input name="school" type="radio" id="notInSession"> No
+          <input name="school" type="radio" id="notInSession" value="false" v-model="inSession"> No
           <span class="checkmark"></span>
         </label>
       </form>
       <div id="result">
+        <p v-if="results.length">The actor...</p>
         <ul>
-          {{ message }}
+          <li v-for="result in results">
+            {{ result }}
+          </li>
         </ul>
       </div>
     </main>
