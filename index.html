@@ -62,11 +62,17 @@
           <span class="checkmark"></span>
         </label>
       </form>
-      <div id="result">
-        <!-- <p v-if="results.length">The actor...</p> -->
+      <div v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet" id="result">
+        <p>The actor...</p>
         <ul>
-          <li v-for="result in results">
-            {{ result }}
+          <li>
+            can work for a maximum of {{maxWorkHrs}} hours
+          </li>
+          <li>
+            needs lunch at {{lunchTime}} (after 6 hours)
+          </li>
+          <li v-bind:class="{ red: isOnSetTooLong }">
+            can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
           </li>
         </ul>
       </div>

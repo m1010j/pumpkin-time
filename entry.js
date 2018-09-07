@@ -6,20 +6,50 @@ document.addEventListener('DOMContentLoaded', () => {
       jurisdiction: null,
       age: null,
       school: null,
+      maxWorkHrs: null,
+      lunchTime: null,
+      maxHrsOnSetTime: null,
+      maxHrsOnSet: null,
+      isOnSetTooLong: false,
     },
-    computed: {
-      results: function() {
-        return generateResults(
-          this.age,
-          this.school,
-          this.jurisdiction,
-          this.startTime
-        );
-      },
+    watch: {
+      jurisdiction: handleChange,
+      age: handleChange,
+      school: handleChange,
+      startTime: handleChange,
+      maxHrsOnSetTime: checkIfTooLate,
     },
   });
-  window.app = app;
 });
+
+const handleChange = function() {
+  if (this.age && this.school && this.jurisdiction) {
+    this.maxWorkHrs = maxWorkHrsRules[this.jurisdiction][this.school][this.age];
+
+    const startTimeArr = this.startTime.split(':');
+    this.lunchTime = calculate(startTimeArr, 6);
+
+    this.maxHrsOnSet =
+      maxHrsOnSetRules[this.jurisdiction][this.school][this.age];
+    this.maxHrsOnSetTime = calculate(startTimeArr, this.maxHrsOnSet);
+  }
+};
+
+const checkIfTooLate = function() {
+  const timeArr = toTimeArr(this.maxHrsOnSetTime);
+
+  const beforeEarliestNextEnd = timeArr[2] === 'PM' || parseInt(timeArr[0]) < 5;
+  const afterTenPm =
+    timeArr[2] === 'PM' && parseInt(timeArr[0]) > 9 && parseInt(timeArr[1]) > 0;
+  const afterMidnight = timeArr[2] === 'AM';
+  const afterTwelveThirty =
+    timeArr[2] === 'AM' &&
+    ((timeArr[0] === '12' && parseInt(timeArr[1]) > 30) || timeArr[0] !== '12');
+
+  this.isOnSetTooLong =
+    (this.school === 'inSession' && (afterTenPm || afterMidnight)) ||
+    (this.school === 'notInSession' && afterTwelveThirty);
+};
 
 const maxHrsOnSetRules = {
   ny: {
@@ -99,31 +129,6 @@ const maxWorkHrsRules = {
   },
 };
 
-const generateResults = (age, school, jurisdiction, startTime) => {
-  let results = [];
-  // if (this.age && this.school && this.jurisdiction) {
-  if (age && school && jurisdiction) {
-    const maxWorkHrs =
-      // maxWorkHrsRules[this.jurisdiction][this.school][this.age];
-      maxWorkHrsRules[jurisdiction][school][age];
-
-    const startTimeArr = startTime.split(':');
-    const lunchTime = calculate(startTimeArr, 6);
-
-    const maxHrsOnSet =
-      // maxHrsOnSetRules[this.jurisdiction][this.school][this.age];
-      maxHrsOnSetRules[jurisdiction][school][age];
-    const maxHrsOnSetTime = calculate(startTimeArr, maxHrsOnSet);
-
-    results = [
-      `can work for a maximum of ${maxWorkHrs} hours`,
-      `needs lunch at ${lunchTime} (after 6 hours)`,
-      `can be on set until ${maxHrsOnSetTime} (max. ${maxHrsOnSet} hours)`,
-    ];
-    return results;
-  }
-};
-
 const calculate = (startTimeArr, time) => {
   const hour = (parseInt(startTimeArr[0]) + time) % 24;
   let newTime;
@@ -145,25 +150,6 @@ const calculate = (startTimeArr, time) => {
   }
 
   return newTime;
-};
-
-const checkIfTooLate = maxHrsOnSetTime => {
-  const timeArr = toTimeArr(maxHrsOnSetTime);
-
-  const beforeEarliestNextEnd = timeArr[2] === 'PM' || parseInt(timeArr[0]) < 5;
-  const afterTenPm =
-    timeArr[2] === 'PM' && parseInt(timeArr[0]) > 9 && parseInt(timeArr[1]) > 0;
-  const afterMidnight = timeArr[2] === 'AM';
-  const afterTwelveThirty =
-    timeArr[2] === 'AM' &&
-    ((timeArr[0] === '12' && parseInt(timeArr[1]) > 30) || timeArr[0] !== '12');
-
-  if (
-    (window.school === 'inSession' && (afterTenPm || afterMidnight)) ||
-    (window.school === 'notInSession' && afterTwelveThirty)
-  ) {
-    document.getElementById('max-hrs-on-set-li').classList.add('red');
-  }
 };
 
 const toTimeArr = timeStr => {
