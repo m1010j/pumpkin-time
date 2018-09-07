@@ -54,16 +54,16 @@
       <form class="radio" id="school-form">
         <p>School in session?&nbsp;</p>
         <label class="container" for="inSession">
-          <input name="school" type="radio" id="inSession" value="true" v-model="inSession"> Yes
+          <input name="school" type="radio" id="inSession" value="inSession" v-model="school"> Yes
           <span class="checkmark"></span>
         </label>
         <label class="container" for="notInSession">
-          <input name="school" type="radio" id="notInSession" value="false" v-model="inSession"> No
+          <input name="school" type="radio" id="notInSession" value="notInSession" v-model="school"> No
           <span class="checkmark"></span>
         </label>
       </form>
       <div id="result">
-        <p v-if="results.length">The actor...</p>
+        <!-- <p v-if="results.length">The actor...</p> -->
         <ul>
           <li v-for="result in results">
             {{ result }}
