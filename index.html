@@ -52,19 +52,12 @@
           <span class="checkmark"></span>
         </label>
       </form>
-      <form class="radio" id="school-form">
-        <p>School in session?&nbsp;</p>
-        <label class="container" for="inSession">
-          <input name="school" type="radio" id="inSession" value="inSession" v-model="school"> Yes
-          <span class="checkmark"></span>
-        </label>
-        <label class="container" for="notInSession">
-          <input name="school" type="radio" id="notInSession" value="notInSession" v-model="school"> No
-          <span class="checkmark"></span>
-        </label>
-      </form>
+      <div id="toggle-button-container">
+        <toggle-button v-model="inSession" :labels="{checked: 'School in session', unchecked: 'School not in session'}" :width="600"
+          :height="70" id="school-toggle" :color="{checked: '#f4b042', unchecked: '#ccc'}" />
+      </div>
     </main>
-    <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet">
+    <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
       <p>The actor...</p>
       <ul>
         <li>
@@ -73,7 +66,7 @@
         <li>
           needs lunch at {{lunchTime}} (after 6 hours)
         </li>
-        <li v-bind:class="{ red: isOnSetTooLong }">
+        <li v-bind:class="{ red: isOnSetTooLong } ">
           can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
         </li>
       </ul>

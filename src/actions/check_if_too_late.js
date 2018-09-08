@@ -12,6 +12,6 @@ export default function() {
     ((timeArr[0] === '12' && parseInt(timeArr[1]) > 30) || timeArr[0] !== '12');
 
   this.isOnSetTooLong =
-    (this.school === 'inSession' && (afterTenPm || afterMidnight)) ||
-    (this.school === 'notInSession' && afterTwelveThirty);
+    (this.inSession && (afterTenPm || afterMidnight)) ||
+    (!this.inSession && afterTwelveThirty);
 }

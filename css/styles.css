@@ -15,7 +15,8 @@ h1,
 li,
 form,
 input,
-label {
+label,
+.vue-js-switch#school-toggle {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -65,7 +66,8 @@ form {
 }
 
 form,
-summary > ul {
+summary > ul,
+#toggle-button-container {
   width: 21rem;
   max-width: calc(100vw - 1rem);
   margin: 0 auto;
@@ -90,6 +92,14 @@ input:hover {
 #start-time-form {
   line-height: 1;
   margin: 0 auto 1rem auto;
+}
+
+.vue-js-switch {
+  margin: auto;
+}
+
+.vue-js-switch#school-toggle {
+  font-size: 1rem;
 }
 
 summary {
@@ -157,5 +167,5 @@ summary > p {
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 50%;
-  background: white;
+  background: #fff;
 }
