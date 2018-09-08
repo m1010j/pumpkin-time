@@ -53,6 +53,16 @@ main {
   height: 1rem;
   border-radius: 100%;
   background-color: #f4b042;
+  position: relative;
+}
+
+#pumpkin > div {
+  width: 1rem;
+  height: 1.2rem;
+  border-radius: 100%;
+  background-color: #f4b042;
+  border: 0.1rem solid #ffeed7;
+  position: absolute;
 }
 
 h1 {
