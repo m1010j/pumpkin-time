@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <title>Pumpkin Time</title>
-  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   <script type="text/javascript" src="./dist/main.js"></script>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/styles.css">
@@ -13,13 +13,15 @@
 
 <body>
   <div id="app">
-    <h1>Pumpkin Time</h1>
+    <header>
+      <h1>Pumpkin Time</h1>
+    </header>
     <main>
-      <div id="start-time-container">
+      <form id="start-time-form">
         <label for="start-time">Start time:
           <input type="time" id="start-time" v-model="startTime" />
         </label>
-      </div>
+      </form>
       <form class="radio" id="jurisdiction-form">
         <p>Jurisdiction:&nbsp;</p>
         <label class="container" for="ny">
@@ -61,21 +63,24 @@
           <span class="checkmark"></span>
         </label>
       </form>
-      <div v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet" id="result">
-        <p>The actor...</p>
-        <ul>
-          <li>
-            can work for a maximum of {{maxWorkHrs}} hours
-          </li>
-          <li>
-            needs lunch at {{lunchTime}} (after 6 hours)
-          </li>
-          <li v-bind:class="{ red: isOnSetTooLong }">
-            can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
-          </li>
-        </ul>
-      </div>
     </main>
+    <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet">
+      <p>The actor...</p>
+      <ul>
+        <li>
+          can work for a maximum of {{maxWorkHrs}} hours
+        </li>
+        <li>
+          needs lunch at {{lunchTime}} (after 6 hours)
+        </li>
+        <li v-bind:class="{ red: isOnSetTooLong }">
+          can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
+        </li>
+      </ul>
+    </summary>
+    <summary v-else>
+      <p>Make your selections.</p>
+    </summary>
   </div>
 </body>
 
