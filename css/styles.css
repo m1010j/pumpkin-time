@@ -32,22 +32,41 @@ header {
   z-index: 1;
   height: 1.5rem;
   background-color: #ffeed7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
   padding: 0.5rem;
   background-color: #d0d4c0;
   width: 100%;
-  height: 9rem;
+  height: 6rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#pumpkin {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: #f4b042;
 }
 
 h1 {
   font-size: 1rem;
   line-height: 1.5;
   font-weight: bold;
-  padding: 0 0.5rem;
   text-align: center;
+  display: inline;
+  margin: 0 0 0 0.125rem;
+}
+
+#start-time-school-jurisdiction-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 li {
@@ -62,36 +81,49 @@ li:before {
 
 form {
   display: flex;
-  margin: auto;
+  flex-direction: column;
+  margin: 0 auto 0.5rem 0;
+}
+
+form > p,
+#toggle-button-container > p {
+  font-size: 0.5rem;
+}
+
+.radio-form-container {
+  display: flex;
+  flex-direction: row;
 }
 
 form,
 summary > ul,
-#toggle-button-container {
-  width: 21rem;
+#start-time-school-jurisdiction-container {
+  width: 17rem;
   max-width: calc(100vw - 1rem);
   margin: 0 auto;
 }
 
-input {
-  font-size: 1rem;
-  border-radius: 0.1rem;
-  border: none;
-  padding: 0 0 0 0.25rem;
-  background-color: #eee;
+#start-time-form,
+#jurisdiction-form {
+  width: auto;
+  margin: 0;
 }
 
-input:hover {
-  background-color: #ccc;
+input[type='time'] {
+  font-size: 1rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 0 0 0 0.25rem;
+  background-color: #f4b042;
+  color: #fff;
+  font-weight: bold;
+  width: 4.7rem;
+  height: 1.5rem;
+  transition: background-color 0.1s;
 }
 
 .red {
   background-color: #f97c7c;
-}
-
-#start-time-form {
-  line-height: 1;
-  margin: 0 auto 1rem auto;
 }
 
 .vue-js-switch {
@@ -100,11 +132,12 @@ input:hover {
 
 .vue-js-switch#school-toggle {
   font-size: 1rem;
+  position: absolute;
 }
 
 summary {
   width: 100%;
-  height: calc(100vh - 10.5rem);
+  height: calc(100vh - 7.5rem);
   overflow-y: auto;
 }
 
@@ -113,59 +146,40 @@ summary > p {
   text-align: center;
 }
 
-/* Radio styling adapted from here: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
-
 .container {
   display: block;
   position: relative;
-  padding: 0 0.5rem 0 1.5rem;
-  margin-bottom: 0.6rem;
+  padding: 0 0.5rem;
   cursor: pointer;
   font-size: 1rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  background-color: #ccc;
+  border-radius: 0.1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.container:nth-of-type(1) {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.container:nth-of-type(2) {
+  border-radius: 0;
+}
+
+.container:nth-of-type(3) {
+  border-radius: 0 1rem 1rem 0;
+}
+
+.selected {
+  background-color: #f4b042;
+  transition: background-color 0.1s;
 }
 
 .container input {
   position: absolute;
   opacity: 0;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-  height: 1rem;
-  width: 1rem;
-  background-color: #eee;
-  border-radius: 50%;
-}
-
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-.container input:checked ~ .checkmark {
-  background-color: #f4b042;
-}
-
-.checkmark:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.container .checkmark:after {
-  top: 0.3125rem;
-  left: 0.3125rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: #fff;
 }

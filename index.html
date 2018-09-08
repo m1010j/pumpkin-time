@@ -14,48 +14,49 @@
 <body>
   <div id="app">
     <header>
+      <div id="pumpkin"></div>
       <h1>Pumpkin Time</h1>
     </header>
     <main>
-      <form id="start-time-form">
-        <label for="start-time">Start time:
+      <div id="start-time-school-jurisdiction-container">
+        <form id="start-time-form">
+          <p>Start time</p>
           <input type="time" id="start-time" v-model="startTime" />
-        </label>
-      </form>
-      <form class="radio" id="jurisdiction-form">
-        <p>Jurisdiction:&nbsp;</p>
-        <label class="container" for="ny">
-          <input name="jurisdiction" type="radio" id="ny" value="ny" v-model="jurisdiction"> NY
-          <span class="checkmark"></span>
-        </label>
-        <label class="container" for="ca">
-          <input name="jurisdiction" type="radio" id="ca" value="ca" v-model="jurisdiction"> CA
-          <span class="checkmark"></span>
-        </label>
-        <label class="container" for="sag">
-          <input name="jurisdiction" type="radio" id="sag" value="sag" v-model="jurisdiction"> SAG
-          <span class="checkmark"></span>
-        </label>
-      </form>
-      <form class="radio" id="age-form">
-        <p>Age:&nbsp;</p>
-        <label class="container" for="sixToEight">
-          <input name="age" type="radio" id="sixToEight" value="sixToEight" v-model="age"> 6-8 years
-          <span class="checkmark"></span>
-        </label>
-        <label class="container" for="nineToFifteen">
-          <input name="age" type="radio" id="nineToFifteen" value="nineToFifteen" v-model="age"> 9-15 years
-          <span class="checkmark"></span>
-        </label>
-        <label class="container" for="sixteenToSeventeen">
-          <input name="age" type="radio" id="sixteenToSeventeen" value="sixteenToSeventeen" v-model="age"> 16-17 years
-          <span class="checkmark"></span>
-        </label>
-      </form>
-      <div id="toggle-button-container">
-        <toggle-button v-model="inSession" :labels="{checked: 'School in session', unchecked: 'School not in session'}" :width="600"
-          :height="70" id="school-toggle" :color="{checked: '#f4b042', unchecked: '#ccc'}" />
+        </form>
+        <div id="toggle-button-container">
+          <p>School in session?</p>
+          <toggle-button v-model="inSession" :labels="{checked: '&nbsp;yes', unchecked: 'no&nbsp;'}" :width="170" :height="72" id="school-toggle"
+            :color="{checked: '#f4b042', unchecked: '#ccc'}" :speed="100" />
+        </div>
+        <form class="radio" id="jurisdiction-form">
+          <p>Jurisdiction</p>
+          <div class="radio-form-container">
+            <label class="container" for="ny" v-bind:class="{ selected: jurisdiction === 'ny' }">
+              <input name="jurisdiction" type="radio" id="ny" value="ny" v-model="jurisdiction"> NY
+            </label>
+            <label class="container" for="ca" v-bind:class="{ selected: jurisdiction === 'ca' }">
+              <input name="jurisdiction" type="radio" id="ca" value="ca" v-model="jurisdiction"> CA
+            </label>
+            <label class="container" for="sag" v-bind:class="{ selected: jurisdiction === 'sag' }">
+              <input name="jurisdiction" type="radio" id="sag" value="sag" v-model="jurisdiction"> SAG
+            </label>
+          </div>
+        </form>
       </div>
+      <form class="radio" id="age-form">
+        <p>Age</p>
+        <div class="radio-form-container">
+          <label class="container" for="sixToEight" v-bind:class="{ selected: age === 'sixToEight' }">
+            <input name="age" type="radio" id="sixToEight" value="sixToEight" v-model="age"> 6-8 years
+          </label>
+          <label class="container" for="nineToFifteen" v-bind:class="{ selected: age === 'nineToFifteen' }">
+            <input name="age" type="radio" id="nineToFifteen" value="nineToFifteen" v-model="age"> 9-15 years
+          </label>
+          <label class="container" for="sixteenToSeventeen" v-bind:class="{ selected: age === 'sixteenToSeventeen' }">
+            <input name="age" type="radio" id="sixteenToSeventeen" value="sixteenToSeventeen" v-model="age"> 16-17 years
+          </label>
+        </div>
+      </form>
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
       <p>The actor...</p>
