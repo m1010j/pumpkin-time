@@ -4,6 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffeed7",
+  "theme_color": "#ffeed7",
   "description": "A tool to calculate set restrictions for underage actors",
   "icons": [
     {
