@@ -27,12 +27,18 @@
       <div id="start-time-school-jurisdiction-container">
         <form id="start-time-form">
           <p>Start time</p>
-          <input type="time" id="start-time" v-model="startTime" />
+          <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
         </form>
         <div id="toggle-button-container">
           <p>School in session?</p>
-          <toggle-button v-model="inSession" :labels="{checked: '&nbsp;yes', unchecked: 'no&nbsp;'}" :width="170" :height="72" id="school-toggle"
-            :color="{checked: '#f4b042', unchecked: '#ccc'}" :speed="100" />
+          <div class="radio-form-container">
+            <label class="container" for="inSession" v-bind:class="{ selected: school === 'inSession' }">
+              <input name="school" type="radio" id="inSession" value="inSession" v-model="school"> Yes
+            </label>
+            <label class="container" for="notInSession" v-bind:class="{ selected: school === 'notInSession' }">
+              <input name="school" type="radio" id="notInSession" value="notInSession" v-model="school"> No
+            </label>
+          </div>
         </div>
         <form class="radio" id="jurisdiction-form">
           <p>Jurisdiction</p>

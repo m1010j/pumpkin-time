@@ -1,6 +1,4 @@
 import Vue from 'vue';
-import ToggleButton from 'vue-js-toggle-button';
-Vue.use(ToggleButton);
 
 import handleChange from './actions/handle_change';
 import checkIfTooLate from './actions/check_if_too_late';
@@ -12,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       startTime: '08:00',
       jurisdiction: null,
       age: null,
-      inSession: false,
+      school: null,
       maxWorkHrs: null,
       lunchTime: null,
       maxHrsOnSetTime: null,
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     watch: {
       jurisdiction: handleChange,
       age: handleChange,
-      inSession: handleChange,
+      school: handleChange,
       startTime: handleChange,
       maxHrsOnSetTime: checkIfTooLate,
     },
