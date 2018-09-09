@@ -49,20 +49,44 @@ main {
 }
 
 #pumpkin {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  background-color: #f4b042;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
   position: relative;
 }
 
 #pumpkin > div {
-  width: 1rem;
-  height: 1.2rem;
+  width: 1.2rem;
+  height: 1rem;
   border-radius: 100%;
   background-color: #f4b042;
-  border: 0.1rem solid #ffeed7;
   position: absolute;
+  top: 0.25rem;
+  left: 0.125rem;
+}
+
+#pumpkin > div > div {
+  box-sizing: border-box;
+  width: 0.9rem;
+  height: 1.1rem;
+  border-radius: 100%;
+  background-color: #f4b042;
+  border: 0.05rem solid #ffeed7;
+  position: absolute;
+  top: -0.05rem;
+  left: 0.15rem;
+}
+
+#pumpkin > div > div > div {
+  box-sizing: border-box;
+  width: 0.5rem;
+  height: 1.05rem;
+  border-radius: 100%;
+  background-color: #f4b042;
+  border: 0.05rem solid #ffeed7;
+  position: absolute;
+  top: -0.01rem;
+  left: 0.15rem;
 }
 
 h1 {
@@ -71,7 +95,6 @@ h1 {
   font-weight: bold;
   text-align: center;
   display: inline;
-  margin: 0 0 0 0.125rem;
 }
 
 #start-time-school-jurisdiction-container {
