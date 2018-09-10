@@ -1,7 +1,7 @@
 {
   "name": "PumpkinTime",
   "short_name": "PumpkinTime",
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffeed7",
   "theme_color": "#ffeed7",
