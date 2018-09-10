@@ -32,37 +32,35 @@
       <h1>Pumpkin Time</h1>
     </header>
     <main>
-      <div id="start-time-school-jurisdiction-container">
-        <form id="start-time-form">
-          <p>Start time</p>
-          <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
-        </form>
-        <div id="toggle-button-container">
-          <p>School in session?</p>
-          <div class="radio-form-container">
-            <label class="container" for="inSession" v-bind:class="{ selected: school === 'inSession' }">
-              <input name="school" type="radio" id="inSession" value="inSession" v-model="school"> Yes
-            </label>
-            <label class="container" for="notInSession" v-bind:class="{ selected: school === 'notInSession' }">
-              <input name="school" type="radio" id="notInSession" value="notInSession" v-model="school"> No
-            </label>
-          </div>
+      <form id="start-time-form">
+        <p>Start time</p>
+        <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
+      </form>
+      <div id="toggle-button-container">
+        <p>School in session?</p>
+        <div class="radio-form-container">
+          <label class="container" for="inSession" v-bind:class="{ selected: school === 'inSession' }">
+            <input name="school" type="radio" id="inSession" value="inSession" v-model="school"> Yes
+          </label>
+          <label class="container" for="notInSession" v-bind:class="{ selected: school === 'notInSession' }">
+            <input name="school" type="radio" id="notInSession" value="notInSession" v-model="school"> No
+          </label>
         </div>
-        <form class="radio" id="jurisdiction-form">
-          <p>Jurisdiction</p>
-          <div class="radio-form-container">
-            <label class="container" for="ny" v-bind:class="{ selected: jurisdiction === 'ny' }">
-              <input name="jurisdiction" type="radio" id="ny" value="ny" v-model="jurisdiction"> NY
-            </label>
-            <label class="container" for="ca" v-bind:class="{ selected: jurisdiction === 'ca' }">
-              <input name="jurisdiction" type="radio" id="ca" value="ca" v-model="jurisdiction"> CA
-            </label>
-            <label class="container" for="sag" v-bind:class="{ selected: jurisdiction === 'sag' }">
-              <input name="jurisdiction" type="radio" id="sag" value="sag" v-model="jurisdiction"> SAG
-            </label>
-          </div>
-        </form>
       </div>
+      <form class="radio" id="jurisdiction-form">
+        <p>Jurisdiction</p>
+        <div class="radio-form-container">
+          <label class="container" for="ny" v-bind:class="{ selected: jurisdiction === 'ny' }">
+            <input name="jurisdiction" type="radio" id="ny" value="ny" v-model="jurisdiction"> NY
+          </label>
+          <label class="container" for="ca" v-bind:class="{ selected: jurisdiction === 'ca' }">
+            <input name="jurisdiction" type="radio" id="ca" value="ca" v-model="jurisdiction"> CA
+          </label>
+          <label class="container" for="sag" v-bind:class="{ selected: jurisdiction === 'sag' }">
+            <input name="jurisdiction" type="radio" id="sag" value="sag" v-model="jurisdiction"> SAG
+          </label>
+        </div>
+      </form>
       <form class="radio" id="age-form">
         <p>Age</p>
         <div class="radio-form-container">
