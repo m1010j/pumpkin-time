@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <div class="sidebar"></div>
   <div id="app">
     <header>
       <div id="pumpkin">
@@ -32,11 +33,11 @@
       <h1>Pumpkin Time</h1>
     </header>
     <main>
-      <form id="start-time-form">
+      <form class="main-item" id="start-time-form">
         <p>Start time</p>
         <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
       </form>
-      <div id="toggle-button-container">
+      <div class="main-item" id="toggle-button-container">
         <p>School in session?</p>
         <div class="radio-form-container">
           <label class="container" for="inSession" v-bind:class="{ selected: school === 'inSession' }">
@@ -47,7 +48,7 @@
           </label>
         </div>
       </div>
-      <form class="radio" id="jurisdiction-form">
+      <form class="main-item" class="radio" id="jurisdiction-form">
         <p>Jurisdiction</p>
         <div class="radio-form-container">
           <label class="container" for="ny" v-bind:class="{ selected: jurisdiction === 'ny' }">
@@ -61,7 +62,7 @@
           </label>
         </div>
       </form>
-      <form class="radio" id="age-form">
+      <form class="main-item" class="radio" id="age-form">
         <p>Age</p>
         <div class="radio-form-container">
           <label class="container" for="sixToEight" v-bind:class="{ selected: age === 'sixToEight' }">
@@ -71,21 +72,22 @@
             <input name="age" type="radio" id="nineToFifteen" value="nineToFifteen" v-model="age"> 9-15 years
           </label>
           <label class="container" for="sixteenToSeventeen" v-bind:class="{ selected: age === 'sixteenToSeventeen' }">
-            <input name="age" type="radio" id="sixteenToSeventeen" value="sixteenToSeventeen" v-model="age"> 16-17 years
+            <input name="age" type="radio" id="sixteenToSeventeen" value="sixteenToSeventeen" v-model="age"> 16-17
+            years
           </label>
         </div>
       </form>
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
-      <p>The actor...</p>
+      <p>The actor:</p>
       <ul>
-        <li>
+        <li class="regular resultItem">
           can work for a maximum of {{maxWorkHrs}} hours
         </li>
-        <li>
+        <li class="regular resultItem">
           needs lunch at {{lunchTime}} (after 6 hours)
         </li>
-        <li v-bind:class="{ red: isOnSetTooLong } ">
+        <li v-bind:class="{ red: isOnSetTooLong, regular: !isOnSetTooLong, resultItem: true } ">
           can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
         </li>
       </ul>
@@ -94,6 +96,7 @@
       <p>Make your selections.</p>
     </summary>
   </div>
+  <div class="sidebar"></div>
 </body>
 
 </html>

@@ -10,6 +10,13 @@ body {
   align-items: center;
 }
 
+.sidebar {
+  background-color: #5e5e5e;
+  height: 100vh;
+  max-width: calc((100vw - (1 / 2 * 100vh)) / 2);
+  min-width: calc((100vw - 17rem) / 2);
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -28,17 +35,27 @@ label,
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-main,
-header,
-.red {
+main {
   margin-top: 0;
   box-shadow: 0 0 0.025rem rgba(0, 0, 0, 0.16),
     0 0.025rem 0.05rem rgba(0, 0, 0, 0.32);
 }
 
+.resultItem {
+  width: 100%;
+  margin: auto;
+  padding: 0.3rem;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  border-bottom: 0.05rem solid #9a9a9a;
+}
+
+.resultItem:first-of-type {
+  border-top: 0.05rem solid #9a9a9a;
+}
+
 header {
   width: 100%;
-  z-index: 1;
   height: 1.5rem;
   background-color: #ffeed7;
   display: flex;
@@ -48,12 +65,17 @@ header {
 
 main {
   padding: 0.5rem;
-  background-color: #b3d39a;
+  background-color: #a4e372;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.main-item {
+  width: 15.7rem;
+  margin: auto;
 }
 
 #pumpkin {
@@ -111,14 +133,9 @@ li {
   line-height: 1;
 }
 
-li:before {
-  content: '...';
-}
-
 form {
   display: flex;
   flex-direction: column;
-  margin: 0 auto 0.5rem 0;
 }
 
 form > p,
@@ -126,22 +143,13 @@ form > p,
   font-size: 0.8rem;
 }
 
+#start-time {
+  width: 5.4rem;
+}
+
 .radio-form-container {
   display: flex;
   flex-direction: row;
-}
-
-form,
-summary > ul,
-#start-time-school-jurisdiction-container {
-  width: 17rem;
-  max-width: calc(100vw - 1rem);
-}
-
-#start-time-form,
-#jurisdiction-form {
-  width: auto;
-  margin: 0;
 }
 
 .start-time {
@@ -172,12 +180,19 @@ summary > ul,
 summary {
   width: 100%;
   overflow-y: auto;
-  height: 7rem;
+  height: 6.2rem;
 }
 
 summary > p {
   padding: 0 0.5rem;
   text-align: center;
+}
+
+header,
+main,
+summary {
+  max-width: calc(1 / 2 * 100vh);
+  min-width: 17rem;
 }
 
 .container {
