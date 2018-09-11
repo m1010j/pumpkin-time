@@ -4,13 +4,38 @@ import calculate from '../util/calculate';
 
 export default function() {
   if (this.startTime && this.age && this.jurisdiction && this.school) {
-    this.maxWorkHrs = maxWorkHrsRules[this.jurisdiction][this.school][this.age];
+    setResponse.call(this, () => {
+      this.maxWorkHrs =
+        maxWorkHrsRules[this.jurisdiction][this.school][this.age];
 
-    const startTimeArr = this.startTime.split(':');
-    this.lunchTime = calculate(startTimeArr, 6);
+      const startTimeArr = this.startTime.split(':');
+      this.lunchTime = calculate(startTimeArr, 6);
 
-    this.maxHrsOnSet =
-      maxHrsOnSetRules[this.jurisdiction][this.school][this.age];
-    this.maxHrsOnSetTime = calculate(startTimeArr, this.maxHrsOnSet);
+      this.maxHrsOnSet =
+        maxHrsOnSetRules[this.jurisdiction][this.school][this.age];
+      this.maxHrsOnSetTime = calculate(startTimeArr, this.maxHrsOnSet);
+    });
+  } else if (
+    this.maxWorkHrs &&
+    this.lunchTime &&
+    this.maxHrsOnSetTime &&
+    this.maxHrsOnSet
+  ) {
+    setResponse.call(this, () => {
+      this.maxWorkHrs = null;
+      this.lunchTime = null;
+      this.maxHrsOnSetTime = null;
+      this.maxHrsOnSet = null;
+    });
   }
+}
+
+function setResponse(callback) {
+  this.loading = true;
+  setTimeout(() => {
+    callback();
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
+  }, 500);
 }

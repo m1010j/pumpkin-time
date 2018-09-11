@@ -88,6 +88,7 @@
       </form>
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
+      <span v-bind:class="{ pulse: true, hidden: !loading }"></span>
       <p>The actor:</p>
       <ul>
         <li class="regular resultItem">
@@ -102,6 +103,7 @@
       </ul>
     </summary>
     <summary v-else>
+      <span v-bind:class="{ pulse: true, hidden: !loading }"></span>
       <p>Make your selections.</p>
     </summary>
   </div>

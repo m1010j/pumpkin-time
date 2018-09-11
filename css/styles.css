@@ -61,6 +61,7 @@ main {
   padding: 0.5rem;
   background-color: #a4e372;
   width: 100%;
+  height: 11.6rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -187,8 +188,8 @@ form > p,
 
 summary {
   width: 100%;
-  overflow-y: auto;
   height: 7.2rem;
+  position: relative;
 }
 
 summary > p {
@@ -241,6 +242,53 @@ summary {
 .container input {
   position: absolute;
   opacity: 0;
+}
+
+.pulse {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  display: block;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: #f4b042;
+  cursor: pointer;
+  box-shadow: 0 0 0 #f4b042;
+  animation: pulse 1s infinite;
+}
+
+.hidden {
+  display: none;
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #f4b042;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 9.5rem #f4b042;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 #f4b042;
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #f4b042;
+    box-shadow: 0 0 0 0 #f4b042;
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 9.5rem #f4b042;
+    box-shadow: 0 0 0 9.5rem #f4b042;
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 #f4b042;
+    box-shadow: 0 0 0 0 #f4b042;
+  }
 }
 
 @font-face {
