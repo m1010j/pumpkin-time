@@ -83,16 +83,14 @@ main {
   display: flex;
 }
 
-#portrait-pumpkin,
-#landscape-pumpkin {
+.pumpkin {
   width: 1.5rem;
   height: 1.5rem;
   background-color: transparent;
   position: relative;
 }
 
-#portrait-pumpkin > div,
-#landscape-pumpkin > div {
+.pumpkin > div {
   width: 1.2rem;
   height: 1rem;
   border-radius: 100%;
@@ -102,8 +100,7 @@ main {
   left: 0.125rem;
 }
 
-#portrait-pumpkin > div > div,
-#landscape-pumpkin > div > div {
+.pumpkin > div > div {
   box-sizing: border-box;
   width: 0.9rem;
   height: 1.1rem;
@@ -115,8 +112,7 @@ main {
   left: 0.15rem;
 }
 
-#portrait-pumpkin > div > div > div,
-#landscape-pumpkin > div > div > div {
+.pumpkin > div > div > div {
   box-sizing: border-box;
   width: 0.5rem;
   height: 1.05rem;
