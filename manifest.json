@@ -48,6 +48,5 @@
       "type": "image/png"
     }
   ],
-  "prefer_related_applications": false,
-  "orientation": "portrait"
+  "prefer_related_applications": false
 }
