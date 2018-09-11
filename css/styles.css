@@ -1,6 +1,6 @@
 html {
   font-size: 1.4em;
-  background: linear-gradient(0, #afaca8 50%, #ffeed7 50%);
+  background: linear-gradient(0, #afaca8 50vh, #ffeed7 50vh);
 }
 
 body {
@@ -8,13 +8,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.sidebar {
-  background-color: #5e5e5e;
-  height: 100vh;
-  max-width: calc((100vw - (1 / 2 * 100vh)) / 2);
-  min-width: calc((100vw - 17rem) / 2);
 }
 
 #app {
@@ -73,8 +66,10 @@ main {
   justify-content: space-around;
 }
 
-.main-item {
+.main-item,
+.resultItem {
   width: 15.7rem;
+  max-width: 100vw;
   margin: auto;
 }
 
@@ -180,7 +175,7 @@ form > p,
 summary {
   width: 100%;
   overflow-y: auto;
-  height: 6.2rem;
+  height: 7.2rem;
 }
 
 summary > p {
@@ -191,8 +186,7 @@ summary > p {
 header,
 main,
 summary {
-  max-width: calc(1 / 2 * 100vh);
-  min-width: 17rem;
+  width: 100%;
 }
 
 .container {
@@ -245,4 +239,7 @@ summary {
   font-family: 'Source Sans Pro';
   src: url('../fonts/SourceSansPro-Bold.ttf');
   font-weight: bold;
+}
+
+@media only screen and (orientation: portrait) {
 }
