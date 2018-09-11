@@ -213,11 +213,9 @@ summary {
   display: block;
   width: 1px;
   height: 1px;
-  border-radius: 50%;
-  background: #f4b042;
-  cursor: pointer;
-  box-shadow: 0 0 0 #f4b042;
   animation: pulse 1s infinite;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
 }
 
 .hidden {
@@ -227,27 +225,25 @@ summary {
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 #f4b042;
+    -webkit-transform: scale(1);
   }
-  70% {
-    -webkit-box-shadow: 0 0 0 9.5rem #f4b042;
+  50% {
+    -webkit-transform: scale(900);
   }
   100% {
-    -webkit-box-shadow: 0 0 0 0 #f4b042;
+    -webkit-transform: scale(1);
   }
 }
+
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 #f4b042;
-    box-shadow: 0 0 0 0 #f4b042;
+    transform: scale(1);
   }
-  70% {
-    -moz-box-shadow: 0 0 0 9.5rem #f4b042;
-    box-shadow: 0 0 0 9.5rem #f4b042;
+  50% {
+    transform: scale(900);
   }
   100% {
-    -moz-box-shadow: 0 0 0 0 #f4b042;
-    box-shadow: 0 0 0 0 #f4b042;
+    transform: scale(1);
   }
 }
 

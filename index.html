@@ -76,7 +76,7 @@
       </form>
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
-      <span v-bind:class="{ pulse: true, hidden: !loading }"></span>
+      <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
       <p>The actor:</p>
       <ul>
         <li class="regular resultItem">
@@ -91,7 +91,7 @@
       </ul>
     </summary>
     <summary v-else>
-      <span v-bind:class="{ pulse: true, hidden: !loading }"></span>
+      <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
       <p>Make your selections.</p>
     </summary>
   </div>
