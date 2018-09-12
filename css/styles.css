@@ -228,7 +228,7 @@ summary {
     -webkit-transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(900);
+    -webkit-transform: scale(400);
   }
   100% {
     -webkit-transform: scale(1);
@@ -240,7 +240,7 @@ summary {
     transform: scale(1);
   }
   50% {
-    transform: scale(900);
+    transform: scale(400);
   }
   100% {
     transform: scale(1);
@@ -332,5 +332,17 @@ summary {
   .resultItem {
     width: calc(100% - 1rem);
     text-align: center;
+  }
+
+  @-webkit-keyframes pulse {
+    50% {
+      -webkit-transform: scale(900);
+    }
+  }
+
+  @keyframes pulse {
+    50% {
+      transform: scale(900);
+    }
   }
 }
