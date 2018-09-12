@@ -32,8 +32,12 @@ export default function() {
 
 function setResponse(callback) {
   this.loading = true;
+  this.isBlurry = true;
   setTimeout(() => {
     callback();
+    setTimeout(() => {
+      this.isBlurry = false;
+    }, 100);
     setTimeout(() => {
       this.loading = false;
     }, 500);

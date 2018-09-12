@@ -77,22 +77,22 @@
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
       <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
-      <p>The actor:</p>
+      <p v-bind:class="{ blurry: isBlurry }">The actor:</p>
       <ul>
-        <li class="regular resultItem">
+        <li v-bind:class="{ blurry: isBlurry, regular: true, resultItem: true }">
           can work for a maximum of {{maxWorkHrs}} hours
         </li>
-        <li class="regular resultItem">
+        <li v-bind:class="{ blurry: isBlurry, regular: true, resultItem: true }">
           needs lunch at {{lunchTime}} (after 6 hours)
         </li>
-        <li v-bind:class="{ red: isOnSetTooLong, regular: !isOnSetTooLong, resultItem: true } ">
+        <li v-bind:class="{ red: isOnSetTooLong, regular: !isOnSetTooLong, resultItem: true, blurry: isBlurry } ">
           can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
         </li>
       </ul>
     </summary>
     <summary v-else>
       <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
-      <p>Make your selections.</p>
+      <p v-bind:class="{ blurry: isBlurry }">Make your selections.</p>
     </summary>
   </div>
 </body>

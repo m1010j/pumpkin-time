@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       maxHrsOnSet: null,
       isOnSetTooLong: false,
       loading: false,
+      isBlurry: false,
     },
     watch: {
       jurisdiction: handleChange,
