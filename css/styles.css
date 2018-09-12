@@ -228,8 +228,8 @@ summary {
   left: 50%;
   margin: 0;
   display: block;
-  width: 0.02rem;
-  height: 0.02rem;
+  width: 0.1rem;
+  height: 0.1rem;
   animation: pulse 1s infinite;
   -webkit-animation-name: pulse;
   animation-name: pulse;
@@ -245,7 +245,7 @@ summary {
     -webkit-transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(450);
+    -webkit-transform: scale(90);
   }
   100% {
     -webkit-transform: scale(1);
@@ -257,7 +257,7 @@ summary {
     transform: scale(1);
   }
   50% {
-    transform: scale(450);
+    transform: scale(90);
   }
   100% {
     transform: scale(1);
@@ -353,13 +353,13 @@ summary {
 
   @-webkit-keyframes pulse {
     50% {
-      -webkit-transform: scale(700);
+      -webkit-transform: scale(130);
     }
   }
 
   @keyframes pulse {
     50% {
-      transform: scale(700);
+      transform: scale(130);
     }
   }
 }
