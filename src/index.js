@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
       maxHrsOnSetTime: checkIfTooLate,
     },
   });
-  window.app = app;
 });
 
 if ('serviceWorker' in navigator) {
