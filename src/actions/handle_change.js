@@ -8,11 +8,12 @@ export default function() {
       this.maxWorkHrs =
         maxWorkHrsRules[this.jurisdiction][this.school][this.age];
 
-      this.lunchTime = calculate(this.startTime, 6);
+      const startTimeArr = this.startTime.split(':').map(str => parseInt(str));
+      this.lunchTime = calculate(startTimeArr, 6);
 
       this.maxHrsOnSet =
         maxHrsOnSetRules[this.jurisdiction][this.school][this.age];
-      this.maxHrsOnSetTime = calculate(this.startTime, this.maxHrsOnSet);
+      this.maxHrsOnSetTime = calculate(startTimeArr, this.maxHrsOnSet);
     });
   } else if (
     this.maxWorkHrs &&

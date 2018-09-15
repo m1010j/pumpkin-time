@@ -1,10 +1,8 @@
-import dayjs from 'dayjs';
+import addHours from 'date-fns/add_hours';
+import format from 'date-fns/format';
 
-export default (startTime, time) => {
-  const dateString = new Date().toISOString().split('T')[0];
-  const date = dayjs(`${dateString}T${startTime}`);
-  const newDate = date.add(time, 'hours');
-  const newTime = newDate.format('h:mm A');
+export default (startTimeArr, time) => {
+  const newDate = addHours(new Date(1988, 6, 26, ...startTimeArr), time);
 
-  return newTime;
+  return format(newDate, 'h:mm A');
 };
