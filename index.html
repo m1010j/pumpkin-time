@@ -83,10 +83,10 @@
           can work for a maximum of {{maxWorkHrs}} hours
         </li>
         <li v-bind:class="{ blurry: isBlurry, regular: true, resultItem: true }">
-          needs lunch at {{lunchTime}} (after 6 hours)
+          needs lunch at {{format(lunchTime, 'h:mm A')}} (after 6 hours)
         </li>
         <li v-bind:class="{ red: isOnSetTooLong, regular: !isOnSetTooLong, resultItem: true, blurry: isBlurry } ">
-          can be on set until {{maxHrsOnSetTime}} (max. {{maxHrsOnSet}} hours)
+          can be on set until {{format(maxHrsOnSetTime, 'h:mm A')}} (max. {{maxHrsOnSet}} hours)
         </li>
       </ul>
     </summary>

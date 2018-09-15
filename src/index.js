@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import format from 'date-fns/format';
 
 import handleChange from './actions/handle_change';
 import checkIfTooLate from './actions/check_if_too_late';
@@ -25,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
       school: handleChange,
       startTime: handleChange,
       maxHrsOnSetTime: checkIfTooLate,
+    },
+    methods: {
+      format,
     },
   });
 });

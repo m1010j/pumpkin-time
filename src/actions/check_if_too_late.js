@@ -1,17 +1,18 @@
-import toTimeArr from '../util/to_time_arr';
+import isAfter from 'date-fns/is_after';
 
 export default function() {
-  const timeArr = toTimeArr(this.maxHrsOnSetTime);
+  const inSession = this.school === 'inSession';
+  const notInSession = this.school === 'notInSession';
 
-  const beforeEarliestNextEnd = timeArr[2] === 'PM' || parseInt(timeArr[0]) < 5;
-  const afterTenPm =
-    timeArr[2] === 'PM' && parseInt(timeArr[0]) > 9 && parseInt(timeArr[1]) > 0;
-  const afterMidnight = timeArr[2] === 'AM';
-  const afterTwelveThirty =
-    timeArr[2] === 'AM' &&
-    ((timeArr[0] === '12' && parseInt(timeArr[1]) > 30) || timeArr[0] !== '12');
+  const afterTenPm = isAfter(
+    this.maxHrsOnSetTime,
+    new Date(1988, 6, 26, 22, 0)
+  );
+  const afterTwelveThirty = isAfter(
+    this.maxHrsOnSetTime,
+    new Date(1988, 6, 27, 0, 30)
+  );
 
   this.isOnSetTooLong =
-    (this.inSession && (afterTenPm || afterMidnight)) ||
-    (!this.inSession && afterTwelveThirty);
+    (inSession && afterTenPm) || (!inSession && afterTwelveThirty);
 }
