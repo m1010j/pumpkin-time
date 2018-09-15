@@ -17,7 +17,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "dayjs": "^1.7.5",
+    "date-fns": "^1.29.0",
     "vue": "^2.5.17"
   }
 }
