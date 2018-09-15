@@ -21,18 +21,19 @@
 
 <body>
   <header id="landscape-header">
-    <img src="./img/logo.svg" class="logo" />
+    <img alt="logo" src="./img/logo.svg" class="logo" />
     <h1>Pumpkin Time</h1>
   </header>
   <div id="app">
     <header id="portrait-header">
-      <img src="./img/logo.svg" class="logo" />
+      <img alt="logo" src="./img/logo.svg" class="logo" />
       <h1>Pumpkin Time</h1>
     </header>
     <main>
       <form class="main-item" id="start-time-form">
-        <p>Start time</p>
-        <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
+        <label for="start-time" id="start-time-label">Start time<br />
+          <input type="time" class="start-time" id="start-time" v-model="startTime" v-bind:class="{ selected: startTime }" />
+        </label>
       </form>
       <div class="main-item" id="toggle-button-container">
         <p>School in session?</p>
@@ -76,7 +77,7 @@
       </form>
     </main>
     <summary v-if="maxWorkHrs && lunchTime && maxHrsOnSetTime && maxHrsOnSet ">
-      <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
+      <img alt="logo" src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
       <p v-bind:class="{ blurry: isBlurry }">The actor:</p>
       <ul>
         <li v-bind:class="{ blurry: isBlurry, regular: true, resultItem: true }">
@@ -91,7 +92,7 @@
       </ul>
     </summary>
     <summary v-else>
-      <img src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
+      <img alt="logo" src="./img/logo.svg" v-bind:class="{ pulse: true, hidden: !loading }"></img>
       <p v-bind:class="{ blurry: isBlurry }">Make your selections.</p>
     </summary>
   </div>

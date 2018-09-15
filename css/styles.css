@@ -109,7 +109,8 @@ form {
 }
 
 form > p,
-#toggle-button-container > p {
+#toggle-button-container > p,
+#start-time-label {
   font-size: 0.8rem;
 }
 
@@ -136,15 +137,6 @@ form > p,
 
 .red {
   background-color: #f97c7c;
-}
-
-.vue-js-switch {
-  margin: auto;
-}
-
-.vue-js-switch#school-toggle {
-  font-size: 1rem;
-  position: absolute;
 }
 
 summary {
@@ -300,6 +292,10 @@ summary {
 
   #portrait-header {
     display: none;
+  }
+
+  #start-time-label {
+    text-align: right;
   }
 
   .logo {
