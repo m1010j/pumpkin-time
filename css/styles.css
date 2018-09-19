@@ -237,7 +237,7 @@ summary {
     -webkit-transform: scale(1);
   }
   50% {
-    -webkit-transform: scale(90);
+    -webkit-transform: scale(72);
   }
   100% {
     -webkit-transform: scale(1);
@@ -249,7 +249,7 @@ summary {
     transform: scale(1);
   }
   50% {
-    transform: scale(90);
+    transform: scale(72);
   }
   100% {
     transform: scale(1);
@@ -349,13 +349,13 @@ summary {
 
   @-webkit-keyframes pulse {
     50% {
-      -webkit-transform: scale(130);
+      -webkit-transform: scale(108);
     }
   }
 
   @keyframes pulse {
     50% {
-      transform: scale(130);
+      transform: scale(108);
     }
   }
 }
